@@ -150,89 +150,40 @@
             </div>
         </div>
     </nav>
-    <main class="page projects-page">
-        <section class="portfolio-block projects-cards">
-            <div class="container">
-                <div class="heading">
-                    <h2>Husma 4&nbsp;</h2>
-                </div>
-                <div class="row">
-                    <div class="col-md-6 col-lg-4">
-                        <div class="card border-0"><a href="#"><img class="card-img-top scale-on-hover" src="assets/img/avatars/grp%20photo%201.jpg" alt="Card Image"></a>
-                            <div class="card-body"></div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="card border-0"><a href="#"><img class="card-img-top scale-on-hover" src="assets/img/nature/husma%204%20watermark%20landscape.jpg" alt="Card Image"></a>
-                            <div class="card-body">
-                                <h6></h6>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="card border-0"><a href="#"><img class="card-img-top scale-on-hover" src="assets/img/nature/IMG-20231130-WA0161%20Husma-4.jpg" alt="Card Image"></a>
-                            <div class="card-body"></div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="card border-0"><a href="#"><img class="card-img-top scale-on-hover" src="assets/img/nature/IMG-20231130-WA0177%20Husma-4.jpg" alt="Card Image"></a>
-                            <div class="card-body"></div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="card border-0"><a href="#"><img class="card-img-top scale-on-hover" src="assets/img/nature/IMG-20231130-WA0179%20Husma-4.jpg" alt="Card Image"></a>
-                            <div class="card-body"></div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="card border-0"><a href="#"><img class="card-img-top scale-on-hover" src="assets/img/nature/IMG-20231130-WA0187%20Husma-4.jpg" alt="Card Image"></a>
-                            <div class="card-body"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <section class="login-section">
-        <div class="container">
-            <h2>Login</h2>
-            <form id="loginForm">
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required>
-                <button type="button" onclick="login()">Login</button>
-            </form>
-        </div>
-    </section>
-
-    <section class="upload-section">
-        <div class="container">
-            <h2>Image Upload Portal (Admin Only)</h2>
-            <form id="imageUploadForm" enctype="multipart/form-data">
-                <input type="file" name="image" accept="image/*" required>
-                <button type="button" onclick="uploadImage()">Upload Image</button>
-            </form>
-        </div>
-    </section>
-            <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-app.js"></script>
+    <div id="login-container">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <button type="button" onclick="login()">Login</button>
+        </form>
+    </div>
+    <!-- Add these script tags before the closing body tag -->
+<script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-auth.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-database.js"></script>
 
 <script>
     // Initialize Firebase with your configuration
     const firebaseConfig = {
-  apiKey: "AIzaSyBhKXcHd5yoMdsHBLorKKiwxH19wi1tGek",
+       apiKey: "AIzaSyBhKXcHd5yoMdsHBLorKKiwxH19wi1tGek",
   authDomain: "slmta-gallery.firebaseapp.com",
   databaseURL: "https://slmta-gallery-default-rtdb.firebaseio.com",
   projectId: "slmta-gallery",
   storageBucket: "slmta-gallery.appspot.com",
   messagingSenderId: "270861473783",
   appId: "1:270861473783:web:88b8527249429699ca00f2"
-};
+    };
 
     firebase.initializeApp(firebaseConfig);
     const auth = firebase.auth();
+</script>
 
-    // Function to handle user login
+<!-- Include your main scripts here -->
+
+    <!-- Include your main scripts here -->
+<script>
     function login() {
         const email = document.getElementById('email').value;
         const password = document.getElementById('password').value;
@@ -241,64 +192,52 @@
             .then((userCredential) => {
                 // User logged in successfully
                 console.log('User logged in:', userCredential.user.uid);
+                // Redirect or perform other actions after login
             })
             .catch((error) => {
                 console.error('Login error:', error.message);
             });
     }
-
-    // Function to handle image upload (assuming you have a Cloud Storage bucket)
+</script>
+<script>
     function uploadImage() {
-        // Get the file input element
         const fileInput = document.querySelector('input[name="image"]');
         const file = fileInput.files[0];
 
-        // Create a unique filename (customize as needed)
-        const filename = `images/${Date.now()}_${file.name}`;
+        const user = auth.currentUser;
+        if (user) {
+            // User is authenticated, proceed with image upload
+            const filename = `images/${Date.now()}_${file.name}`;
+            const storageRef = firebase.storage().ref(filename);
+            const uploadTask = storageRef.put(file);
 
-        // Upload the file to Cloud Storage
-        const storageRef = firebase.storage().ref(filename);
-        const uploadTask = storageRef.put(file);
-
-        // Listen for state changes, errors, and completion
-        uploadTask.on('state_changed',
-            (snapshot) => {
-                // Handle progress (optional)
-            },
-            (error) => {
-                console.error('Upload error:', error.message);
-            },
-            () => {
-                // Handle successful upload
-                console.log('Upload successful');
-
-                // Optionally, store the file reference in the Realtime Database
-                const databaseRef = firebase.database().ref('uploads');
-                databaseRef.push({
-                    filename: filename,
-                    timestamp: firebase.database.ServerValue.TIMESTAMP
-                });
-            }
-        );
+            uploadTask.on('state_changed',
+                (snapshot) => {
+                    // Handle progress (optional)
+                },
+                (error) => {
+                    console.error('Upload error:', error.message);
+                },
+                () => {
+                    // Handle successful upload
+                    console.log('Upload successful');
+                    // Optionally, store image data in the database
+                    const databaseRef = firebase.database().ref('uploads');
+                    databaseRef.push({
+                        filename: filename,
+                        timestamp: firebase.database.ServerValue.TIMESTAMP,
+                        createdBy: user.uid // Store the user who uploaded the image
+                    });
+                }
+            );
+        } else {
+            console.log("User is not authenticated.");
+            // Handle unauthorized access (e.g., show a message to the user)
+        }
     }
 </script>
 
-        </section>
-        <script src="https://giscus.app/client.js"
-        data-repo="SLTharusha254/slmta_comments"
-        data-repo-id="R_kgDOK2fw8A"
-        data-category="General"
-        data-category-id="DIC_kwDOK2fw8M4Cbi3f"
-        data-mapping="pathname"
-        data-strict="0"
-        data-reactions-enabled="1"
-        data-emit-metadata="0"
-        data-input-position="bottom"
-        data-theme="noborder_light"
-        data-lang="en"
-        crossorigin="anonymous"
-        async>
-</script>
+
     </main>
     <div style="background-color:rgba(58,47,47,0);background-image:url(&quot;assets/img/footer.png&quot;);background-size:cover;background-repeat:no-repeat;height:366px;">
         <div class="container">
