@@ -191,6 +191,28 @@
                     </div>
                 </div>
             </div>
+            <section class="login-section">
+        <div class="container">
+            <h2>Login</h2>
+            <form id="loginForm">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+                <button type="button" onclick="login()">Login</button>
+            </form>
+        </div>
+    </section>
+
+    <section class="upload-section">
+        <div class="container">
+            <h2>Image Upload Portal (Admin Only)</h2>
+            <form id="imageUploadForm" enctype="multipart/form-data">
+                <input type="file" name="image" accept="image/*" required>
+                <button type="button" onclick="uploadImage()">Upload Image</button>
+            </form>
+        </div>
+    </section>
         </section>
         <script src="https://giscus.app/client.js"
         data-repo="SLTharusha254/slmta_comments"
