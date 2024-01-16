@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html data-bs-theme="light">
+<html>
 
 <head>
     <meta charset="utf-8">
@@ -8,91 +8,12 @@
     <meta name="twitter:title" content="Sri Lanka Music Therapy Association">
     <meta name="twitter:image" content="https://www.lkmta.site/assets/img/Artboard 1 (1).png">
     <meta property="og:image" content="https://www.lkmta.site/assets/img/Artboard 1 (1).png">
-    <meta name="description" content="Immerse yourself in the transformative power of music, where the connoisseur's heart becomes the canvas for healing. Our innovative therapeutic approach harnesses the profound synergy between science and art, weaving a tapestry of sound frequencies that resonate deep within your soul.">
+    <meta name="description"
+        content="Immerse yourself in the transformative power of music, where the connoisseur's heart becomes the canvas for healing. Our innovative therapeutic approach harnesses the profound synergy between science and art, weaving a tapestry of sound frequencies that resonate deep within your soul.">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:description" content="Immerse yourself in the transformative power of music, where the connoisseur's heart becomes the canvas for healing. Our innovative therapeutic approach harnesses the profound synergy between science and art, weaving a tapestry of sound frequencies that resonate deep within your soul.">
-    <script>
-        (function() {
-
-            // JavaScript snippet handling Dark/Light mode switching
-
-            const getStoredTheme = () => localStorage.getItem('theme');
-            const setStoredTheme = theme => localStorage.setItem('theme', theme);
-            const forcedTheme = document.documentElement.getAttribute('data-bss-forced-theme');
-
-            const getPreferredTheme = () => {
-
-                if (forcedTheme) return forcedTheme;
-
-                const storedTheme = getStoredTheme();
-                if (storedTheme) {
-                    return storedTheme;
-                }
-
-                const pageTheme = document.documentElement.getAttribute('data-bs-theme');
-
-                if (pageTheme) {
-                    return pageTheme;
-                }
-
-                return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-            }
-
-            const setTheme = theme => {
-                if (theme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-                    document.documentElement.setAttribute('data-bs-theme', 'dark');
-                } else {
-                    document.documentElement.setAttribute('data-bs-theme', theme);
-                }
-            }
-
-            setTheme(getPreferredTheme());
-
-            const showActiveTheme = (theme, focus = false) => {
-                const themeSwitchers = [].slice.call(document.querySelectorAll('.theme-switcher'));
-
-                if (!themeSwitchers.length) return;
-
-                document.querySelectorAll('[data-bs-theme-value]').forEach(element => {
-                    element.classList.remove('active');
-                    element.setAttribute('aria-pressed', 'false');
-                });
-
-                for (const themeSwitcher of themeSwitchers) {
-
-                    const btnToActivate = themeSwitcher.querySelector('[data-bs-theme-value="' + theme + '"]');
-
-                    if (btnToActivate) {
-                        btnToActivate.classList.add('active');
-                        btnToActivate.setAttribute('aria-pressed', 'true');
-                    }
-                }
-            }
-
-            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
-                const storedTheme = getStoredTheme();
-                if (storedTheme !== 'light' && storedTheme !== 'dark') {
-                    setTheme(getPreferredTheme());
-                }
-            });
-
-            window.addEventListener('DOMContentLoaded', () => {
-                showActiveTheme(getPreferredTheme());
-
-                document.querySelectorAll('[data-bs-theme-value]')
-                    .forEach(toggle => {
-                        toggle.addEventListener('click', (e) => {
-                            e.preventDefault();
-                            const theme = toggle.getAttribute('data-bs-theme-value');
-                            setStoredTheme(theme);
-                            setTheme(theme);
-                            showActiveTheme(theme);
-                        })
-                    })
-            });
-        })();
-    </script>
+    <meta name="twitter:description"
+        content="Immerse yourself in the transformative power of music, where the connoisseur's heart becomes the canvas for healing. Our innovative therapeutic approach harnesses the profound synergy between science and art, weaving a tapestry of sound frequencies that resonate deep within your soul.">
     <link rel="icon" type="image/png" sizes="576x576" href="assets/img/Artboard%201%20(1).png">
     <link rel="icon" type="image/png" sizes="576x576" href="assets/img/Artboard%201%20(1).png" media="(prefers-color-scheme: dark)">
     <link rel="icon" type="image/png" sizes="576x576" href="assets/img/Artboard%201%20(1).png">
@@ -130,22 +51,14 @@
 
 <body>
     <nav class="navbar navbar-expand-lg fixed-top portfolio-navbar gradient navbar-dark">
-        <div class="container"><a class="navbar-brand logo" href="#">Sri Lanka Music Therapy Association</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navbarNav"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+        <div class="container"><a class="navbar-brand logo" href="#">Sri Lanka Music Therapy Association</a><button
+                data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navbarNav"><span
+                    class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <div class="theme-switcher dropdown" style="height: 17px;"><a class="dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" href="#"><i class="icon ion-ios-lightbulb-outline mb-1"></i></a>
-                    <div class="dropdown-menu"><a class="dropdown-item d-flex align-items-center" href="#" data-bs-theme-value="light"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-sun-fill opacity-50 me-2">
-                                <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"></path>
-                            </svg>Light</a><a class="dropdown-item d-flex align-items-center" href="#" data-bs-theme-value="dark"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-moon-stars-fill opacity-50 me-2">
-                                <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"></path>
-                                <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"></path>
-                            </svg>Dark</a><a class="dropdown-item d-flex align-items-center" href="#" data-bs-theme-value="auto"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-circle-half opacity-50 me-2">
-                                <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"></path>
-                            </svg>Auto</a></div>
-                </div>
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
                     <li class="nav-item"><a class="nav-link active" href="gallery.html">Gallery</a></li>
-                    <li class="nav-item"><a class="nav-link" href="https://application.lkmta.site"> Apply Now</a></li>
+                    <li class="nav-item"><a class="nav-link" href="https://application.lkmta.site"> Apply Now</a></li>
                 </ul>
             </div>
         </div>
@@ -160,98 +73,95 @@
             <button type="button" onclick="login()">Login</button>
         </form>
     </div>
-    <!-- Add these script tags before the closing body tag -->
-<script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-auth.js"></script>
 
-<script>
-    // Initialize Firebase with your configuration
-    const firebaseConfig = {
-       apiKey: "AIzaSyBhKXcHd5yoMdsHBLorKKiwxH19wi1tGek",
-  authDomain: "slmta-gallery.firebaseapp.com",
-  databaseURL: "https://slmta-gallery-default-rtdb.firebaseio.com",
-  projectId: "slmta-gallery",
-  storageBucket: "slmta-gallery.appspot.com",
-  messagingSenderId: "270861473783",
-  appId: "1:270861473783:web:88b8527249429699ca00f2"
-    };
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyBhKXcHd5yoMdsHBLorKKiwxH19wi1tGek",
+            authDomain: "slmta-gallery.firebaseapp.com",
+            databaseURL: "https://slmta-gallery-default-rtdb.firebaseio.com",
+            projectId: "slmta-gallery",
+            storageBucket: "slmta-gallery.appspot.com",
+            messagingSenderId: "270861473783",
+            appId: "1:270861473783:web:88b8527249429699ca00f2"
+        };
 
-    firebase.initializeApp(firebaseConfig);
-    const auth = firebase.auth();
-</script>
+        firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
+    </script>
 
-<!-- Include your main scripts here -->
+    <script>
+        function login() {
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
 
-    <!-- Include your main scripts here -->
-<script>
-    function login() {
-        const email = document.getElementById('email').value;
-        const password = document.getElementById('password').value;
-
-        auth.signInWithEmailAndPassword(email, password)
-            .then((userCredential) => {
-                // User logged in successfully
-                console.log('User logged in:', userCredential.user.uid);
-                // Redirect or perform other actions after login
-            })
-            .catch((error) => {
-                console.error('Login error:', error.message);
-            });
-    }
-</script>
-<script>
-    function uploadImage() {
-        const fileInput = document.querySelector('input[name="image"]');
-        const file = fileInput.files[0];
-
-        const user = auth.currentUser;
-        if (user) {
-            // User is authenticated, proceed with image upload
-            const filename = `images/${Date.now()}_${file.name}`;
-            const storageRef = firebase.storage().ref(filename);
-            const uploadTask = storageRef.put(file);
-
-            uploadTask.on('state_changed',
-                (snapshot) => {
-                    // Handle progress (optional)
-                },
-                (error) => {
-                    console.error('Upload error:', error.message);
-                },
-                () => {
-                    // Handle successful upload
-                    console.log('Upload successful');
-                    // Optionally, store image data in the database
-                    const databaseRef = firebase.database().ref('uploads');
-                    databaseRef.push({
-                        filename: filename,
-                        timestamp: firebase.database.ServerValue.TIMESTAMP,
-                        createdBy: user.uid // Store the user who uploaded the image
-                    });
-                }
-            );
-        } else {
-            console.log("User is not authenticated.");
-            // Handle unauthorized access (e.g., show a message to the user)
+            auth.signInWithEmailAndPassword(email, password)
+                .then((userCredential) => {
+                    console.log('User logged in:', userCredential.user.uid);
+                })
+                .catch((error) => {
+                    console.error('Login error:', error.message);
+                });
         }
-    }
-</script>
+    </script>
 
+    <script>
+        function uploadImage() {
+            const fileInput = document.querySelector('input[name="image"]');
+            const file = fileInput.files[0];
 
-    </main>
+            const user = auth.currentUser;
+            if (user) {
+                const filename = `images/${Date.now()}_${file.name}`;
+                const storageRef = firebase.storage().ref(filename);
+                const uploadTask = storageRef.put(file);
+
+                uploadTask.on('state_changed',
+                    (snapshot) => {},
+                    (error) => {
+                        console.error('Upload error:', error.message);
+                    },
+                    () => {
+                        console.log('Upload successful');
+                        const databaseRef = firebase.database().ref('uploads');
+                        databaseRef.push({
+                            filename: filename,
+                            timestamp: firebase.database.ServerValue.TIMESTAMP,
+                            createdBy: user.uid
+                        });
+                    }
+                );
+            } else {
+                console.log("User is not authenticated.");
+            }
+        }
+    </script>
+
     <div style="background-color:rgba(58,47,47,0);background-image:url(&quot;assets/img/footer.png&quot;);background-size:cover;background-repeat:no-repeat;height:366px;">
         <div class="container">
-            <h1 class="text-center" style="font-family: Allura, serif;font-size: 46px;color: rgb(0,0,0);font-weight: bold;">Sri Lanka Music Therapy Asspciation</h1>
+            <h1 class="text-center" style="font-family: Allura, serif;font-size: 46px;color: rgb(0,0,0);font-weight: bold;">Sri
+                Lanka Music Therapy Association</h1>
             <hr>
             <ul class="list-inline" id="text_decoration" style="margin-top:30px;font-family:ABeeZee, sans-serif;">
-                <li class="list-inline-item"><a class="decoration" style="color:rgb(0,0,0);font-size:20px;margin-right:10px;" href="#">Home</a></li>
-                <li class="list-inline-item"><a style="font-size:20px;color:rgb(0,0,0);margin-right:10px;" href="#">Services</a></li>
+                <li class="list-inline-item"><a class="decoration"
+                        style="color:rgb(0,0,0);font-size:20px;margin-right:10px;" href="#">Home</a></li>
+                <li class="list-inline-item"><a style="font-size:20px;color:rgb(0,0,0);margin-right:10px;" href="#">Services</a>
+                </li>
                 <li class="list-inline-item"></li>
                 <li class="list-inline-item"><a style="color:rgb(0,0,0);font-size:20px;margin-right:10px;" href="#">Terms</a></li>
                 <li class="list-inline-item"><a style="color:rgb(0,0,0);font-size:20px;" href="#">Privacy Policy</a></li>
             </ul>
-            <p class="text-center" style="margin-top:30px;margin-bottom:15px;"><a style="font-size:35px;margin-right:30px;" href="#"><i class="fa fa-facebook-square" style="color:rgb(0,0,0);margin-right:0px;"></i></a><a style="font-size:35px;margin-right:30px;" href="#"><i class="fa fa-instagram" style="color:rgb(0,0,0);margin-right:0px;"></i></a><a style="font-size:35px;margin-right:30px;" href="#"><i class="icon ion-social-twitter" style="color:rgb(0,0,0);margin-right:2px;"></i></a><a style="font-size:35px;" href="#"><i class="fa fa-google-plus-square" style="color:rgb(0,0,0);"></i></a></p>
-            <p class="text-center" style="color:rgb(193,184,184);font-family:ABeeZee, sans-serif;margin-bottom:23px;">SLMTA-LKMTA-Husma @ 2023</p>
+            <p class="text-center"
+                style="margin-top:30px;margin-bottom:15px;"><a style="font-size:35px;margin-right:30px;"
+                    href="#"><i class="fa fa-facebook-square" style="color:rgb(0,0,0);margin-right:0px;"></i></a><a
+                    style="font-size:35px;margin-right:30px;" href="#"><i class="fa fa-instagram"
+                        style="color:rgb(0,0,0);margin-right:0px;"></i></a><a style="font-size:35px;margin-right:30px;"
+                    href="#"><i class="icon ion-social-twitter"
+                        style="color:rgb(0,0,0);margin-right:2px;"></i></a><a style="font-size:35px;" href="#"><i
+                        class="fa fa-google-plus-square" style="color:rgb(0,0,0);"></i></a></p>
+            <p class="text-center" style="color:rgb(193,184,184);font-family:ABeeZee, sans-serif;margin-bottom:23px;">SLMTA-LKMTA-Husma
+                @ 2023</p>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
@@ -260,7 +170,6 @@
     <script src="assets/js/Basic-fancyBox-Gallery-myfancybox.js"></script>
     <script src="assets/js/Animated-Type-Heading-type-headline.js"></script>
     <script src="assets/js/pikaday.min.js"></script>
-    <script src="assets/js/theme.js"></script>
 </body>
 
 </html>
