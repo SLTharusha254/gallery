@@ -76,7 +76,10 @@
     <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-auth.js"></script>
 
-    <script>
+    <script type="module">
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.0.2/firebase-app.js';
+    import { getAuth, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.0.2/firebase-auth.js';
+
         const firebaseConfig = {
             apiKey: "AIzaSyBhKXcHd5yoMdsHBLorKKiwxH19wi1tGek",
             authDomain: "slmta-gallery.firebaseapp.com",
@@ -87,11 +90,13 @@
             appId: "1:270861473783:web:88b8527249429699ca00f2"
         };
 
-        firebase.initializeApp(firebaseConfig);
-        const auth = firebase.auth();
+         const firebaseApp = initializeApp(firebaseConfig);
+    const auth = getAuth(firebaseApp);
     </script>
 
-    <script>
+   <script type="module">
+    import { signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.0.2/firebase-auth.js';
+
         function login() {
             const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
